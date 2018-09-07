@@ -5,4 +5,5 @@ lib
 !*/glsp-sprotty/src/lib
 *.log
 examples/browser-app/
+packages/workflow-glsp-extension/build/*
 !examples/browser-app/package.json

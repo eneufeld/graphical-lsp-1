@@ -16,16 +16,20 @@
     "@theia/monaco": "latest",
     "@types/node": "^8.0.14",
     "workflow-sprotty": "0.1.0",
-    "glsp-theia-extension": "0.4.0"
+    "glsp-theia-extension": "0.4.0",
+    "get-port": "4.0.0",
+    "promise-socket": "3.1.1"
   },
   "devDependencies": {
+    "@types/get-port": "^4.0.0",
     "rimraf": "latest",
     "typescript": "latest"
   },
   "scripts": {
     "prepare": "yarn run clean && yarn run build",
     "clean": "rimraf lib",
-    "build": "tsc",
+    "copy-glsp": "rm -rf ./build && mkdir build && cp ../../../server/example/workflow-example/target/workflow-example-0.0.1-SNAPSHOT-glsp.jar ./build",
+    "build": "tsc && yarn run copy-glsp",
     "watch": "tsc -w"
   },
   "theiaExtensions": [

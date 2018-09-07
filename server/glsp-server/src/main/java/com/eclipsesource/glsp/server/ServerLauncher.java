@@ -52,6 +52,7 @@ public class ServerLauncher {
 				.bind(new InetSocketAddress(host, port));
 		ExecutorService threadPool = Executors.newCachedThreadPool();
 		System.out.println("The graphical server launcher is ready to accept new client requests");
+		System.out.println("Host: "+host + " , " + "port: "+ port);
 		while (true) {
 			AsynchronousSocketChannel socketChannel = serverSocket.accept().get();
 			InputStream in = Channels.newInputStream(socketChannel);

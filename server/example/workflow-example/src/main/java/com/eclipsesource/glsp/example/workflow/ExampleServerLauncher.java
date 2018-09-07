@@ -15,11 +15,22 @@ import java.util.concurrent.ExecutionException;
 
 import com.eclipsesource.glsp.server.ServerLauncher;
 
-
 public class ExampleServerLauncher {
 
 	public static void main(String[] args) {
-		ServerLauncher launcher=new ServerLauncher("localhost", 5007, new WorkflowServerRuntimeModule());
+		int port = Integer.MIN_VALUE;
+		String host = null;
+		if (args.length == 2) {
+			host = args[0];
+			port = Integer.parseInt(args[1]);
+		}
+
+		if (host == null && port == Integer.MIN_VALUE) {
+			host = "localhost";
+			port = 5007;
+		}
+
+		ServerLauncher launcher = new ServerLauncher(host, port, new WorkflowServerRuntimeModule());
 		try {
 			launcher.run();
 		} catch (IOException e) {
@@ -32,5 +43,6 @@ public class ExampleServerLauncher {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
 }

@@ -24,7 +24,8 @@
   },
   "scripts": {
     "prepare": "theia build",    
-    "start": "theia start --WORKFLOW_LSP=5007 --root-dir=../workspace",
+    "start": "theia start  --root-dir=../workspace",
+    "start:debug:server": "theia start --WORKFLOW_GLSP=5007 --root-dir=../workspace",
     "start:debug": "yarn start --log-level=debug",
   	"watch": "theia build --watch"
   },
